@@ -9,11 +9,11 @@
     <PackageIcon>multidbhelper-icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/alecgn/multi-db-helper</RepositoryUrl>
     <PackageTags>dapper multi database db sql mssql sqlserver mssqlserver firebird firebirdsql mysql postgre postgresql npg npgsql oracle sqlite</PackageTags>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/alecgn/multi-db-helper</PackageProjectUrl>
-    <Version>1.0.1</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
