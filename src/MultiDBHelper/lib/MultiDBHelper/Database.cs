@@ -24,30 +24,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -77,30 +54,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -129,30 +83,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.Query<T>(command);
@@ -174,30 +105,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -227,30 +135,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -280,30 +165,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -333,30 +195,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -386,30 +225,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -439,30 +255,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -492,30 +285,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -545,30 +315,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -599,30 +346,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -652,30 +376,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -704,30 +405,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.QueryFirst<T>(command);
@@ -749,30 +427,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -803,30 +458,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -856,30 +488,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -908,30 +517,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.QueryFirstOrDefault<T>(command);
@@ -953,30 +539,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1007,30 +570,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1060,30 +600,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1112,30 +629,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.QuerySingle<T>(command);
@@ -1157,30 +651,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1211,30 +682,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1264,30 +712,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1316,30 +741,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.QuerySingleOrDefault<T>(command);
@@ -1361,30 +763,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1414,30 +793,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.QueryMultiple(command);
@@ -1459,30 +815,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1513,30 +846,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1565,30 +875,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.Execute(command);
@@ -1610,30 +897,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.ExecuteScalar(command);
@@ -1655,30 +919,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1707,30 +948,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.ExecuteScalar<T>(command);
@@ -1752,30 +970,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1805,30 +1000,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.ExecuteReader(command);
@@ -1849,30 +1021,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 return connection.ExecuteReader(command, commandBehavior);
@@ -1894,30 +1043,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                switch (db)
-                {
-                    case Db.MSSQLServer:
-                        connection = new SqlConnection(connectionString);
-                        break;
-                    case Db.MySQL:
-                        connection = new MySqlConnection(connectionString);
-                        break;
-                    case Db.PostgreSQL:
-                        connection = new NpgsqlConnection(connectionString);
-                        break;
-                    case Db.Oracle:
-                        connection = new OracleConnection(connectionString);
-                        break;
-                    case Db.Firebird:
-                        connection = new FbConnection(connectionString);
-                        break;
-                    case Db.SQLite:
-                        connection = new SQLiteConnection(connectionString);
-                        break;
-                    default:
-                        break;
-                }
-
+                connection = CreateConnection(db, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1935,6 +1061,38 @@ namespace MultiDBHelper
                 connection.Dispose();
                 transaction?.Dispose();
             }
+        }
+
+        
+        private static IDbConnection CreateConnection(Db db, string connectionString)
+        {
+            IDbConnection connection = null;
+
+            switch (db)
+            {
+                case Db.MSSQLServer:
+                    connection = new SqlConnection(connectionString);
+                    break;
+                case Db.MySQL:
+                    connection = new MySqlConnection(connectionString);
+                    break;
+                case Db.PostgreSQL:
+                    connection = new NpgsqlConnection(connectionString);
+                    break;
+                case Db.Oracle:
+                    connection = new OracleConnection(connectionString);
+                    break;
+                case Db.Firebird:
+                    connection = new FbConnection(connectionString);
+                    break;
+                case Db.SQLite:
+                    connection = new SQLiteConnection(connectionString);
+                    break;
+                default:
+                    break;
+            }
+
+            return connection;
         }
     }
 }
