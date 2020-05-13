@@ -14,7 +14,7 @@ namespace MultiDBHelper
 {
     public static class Database
     {
-        public static IEnumerable<dynamic> Query(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<dynamic> Query(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -24,7 +24,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -44,7 +44,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<object> Query(Db db, string connectionString, Type type, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<object> Query(RDBMSProvider rdbmsProvider, string connectionString, Type type, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -54,7 +54,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -74,7 +74,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<T> Query<T>(Db db, string connectionString, CommandDefinition command)
+        public static IEnumerable<T> Query<T>(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -83,7 +83,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.Query<T>(command);
@@ -95,7 +95,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<T> Query<T>(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<T> Query<T>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -105,7 +105,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -125,7 +125,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<T> Query<T>(Db db, string connectionString, string sqlQuery, Type[] types, Func<object[], T> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<T> Query<T>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, Type[] types, Func<object[], T> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -135,7 +135,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -155,7 +155,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(Db db, string connectionString, string sqlQuery, Func<TFirst, TSecond, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, Func<TFirst, TSecond, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -165,7 +165,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -185,7 +185,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(Db db, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -195,7 +195,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -215,7 +215,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TReturn>(Db db, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TReturn>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -225,7 +225,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -245,7 +245,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TFifth, TReturn>(Db db, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TFifth, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TFifth, TReturn>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TFifth, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -255,7 +255,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -275,7 +275,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TReturn>(Db db, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TReturn>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -285,7 +285,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -305,7 +305,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TSeventh, TReturn>(Db db, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TSeventh, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
+        public static IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TSeventh, TReturn>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, Func<TFirst, TSecond, TThird, TFouth, TFifth, TSixth, TSeventh, TReturn> map, object paramsObj = null, bool useTransaction = false, bool buffered = true, string splitOn = "Id", int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -315,7 +315,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -336,7 +336,7 @@ namespace MultiDBHelper
         }
 
 
-        public static dynamic QueryFirst(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static dynamic QueryFirst(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -346,7 +346,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -366,7 +366,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static object QueryFirst(Db db, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static object QueryFirst(RDBMSProvider rdbmsProvider, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -376,7 +376,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -396,7 +396,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QueryFirst<T>(Db db, string connectionString, CommandDefinition command)
+        public static T QueryFirst<T>(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -405,7 +405,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.QueryFirst<T>(command);
@@ -417,7 +417,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QueryFirst<T>(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static T QueryFirst<T>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -427,7 +427,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -448,7 +448,7 @@ namespace MultiDBHelper
         }
 
 
-        public static dynamic QueryFirstOrDefault(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static dynamic QueryFirstOrDefault(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -458,7 +458,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -478,7 +478,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static object QueryFirstOrDefault(Db db, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static object QueryFirstOrDefault(RDBMSProvider rdbmsProvider, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -488,7 +488,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -508,7 +508,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QueryFirstOrDefault<T>(Db db, string connectionString, CommandDefinition command)
+        public static T QueryFirstOrDefault<T>(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -517,7 +517,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.QueryFirstOrDefault<T>(command);
@@ -529,7 +529,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QueryFirstOrDefault<T>(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static T QueryFirstOrDefault<T>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -539,7 +539,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -560,7 +560,7 @@ namespace MultiDBHelper
         }
 
 
-        public static dynamic QuerySingle(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static dynamic QuerySingle(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -570,7 +570,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -590,7 +590,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static object QuerySingle(Db db, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static object QuerySingle(RDBMSProvider rdbmsProvider, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -600,7 +600,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -620,7 +620,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QuerySingle<T>(Db db, string connectionString, CommandDefinition command)
+        public static T QuerySingle<T>(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -629,7 +629,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.QuerySingle<T>(command);
@@ -641,7 +641,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QuerySingle<T>(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static T QuerySingle<T>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -651,7 +651,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -672,7 +672,7 @@ namespace MultiDBHelper
         }
 
 
-        public static dynamic QuerySingleOrDefault(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static dynamic QuerySingleOrDefault(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -682,7 +682,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -702,7 +702,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static object QuerySingleOrDefault(Db db, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static object QuerySingleOrDefault(RDBMSProvider rdbmsProvider, Type type, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -712,7 +712,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -732,7 +732,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QuerySingleOrDefault<T>(Db db, string connectionString, CommandDefinition command)
+        public static T QuerySingleOrDefault<T>(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -741,7 +741,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.QuerySingleOrDefault<T>(command);
@@ -753,7 +753,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T QuerySingleOrDefault<T>(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static T QuerySingleOrDefault<T>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -763,7 +763,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -784,7 +784,7 @@ namespace MultiDBHelper
         }
 
 
-        public static SqlMapper.GridReader QueryMultiple(Db db, string connectionString, CommandDefinition command)
+        public static SqlMapper.GridReader QueryMultiple(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -793,7 +793,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.QueryMultiple(command);
@@ -805,7 +805,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static SqlMapper.GridReader QueryMultiple(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static SqlMapper.GridReader QueryMultiple(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -815,7 +815,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -836,7 +836,7 @@ namespace MultiDBHelper
         }
 
 
-        public static int Execute(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static int Execute(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -846,7 +846,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -866,7 +866,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static int Execute(Db db, string connectionString, CommandDefinition command)
+        public static int Execute(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -875,7 +875,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.Execute(command);
@@ -888,7 +888,7 @@ namespace MultiDBHelper
         }
 
         
-        public static object ExecuteScalar(Db db, string connectionString, CommandDefinition command)
+        public static object ExecuteScalar(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -897,7 +897,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.ExecuteScalar(command);
@@ -909,7 +909,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static object ExecuteScalar(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static object ExecuteScalar(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -919,7 +919,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -939,7 +939,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T ExecuteScalar<T>(Db db, string connectionString, CommandDefinition command)
+        public static T ExecuteScalar<T>(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -948,7 +948,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.ExecuteScalar<T>(command);
@@ -960,7 +960,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static T ExecuteScalar<T>(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static T ExecuteScalar<T>(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -970,7 +970,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -991,7 +991,7 @@ namespace MultiDBHelper
         }
 
 
-        public static IDataReader ExecuteReader(Db db, string connectionString, CommandDefinition command)
+        public static IDataReader ExecuteReader(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command)
         {
             IDbConnection connection = null;
 
@@ -1000,7 +1000,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.ExecuteReader(command);
@@ -1012,7 +1012,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IDataReader ExecuteReader(Db db, string connectionString, CommandDefinition command, CommandBehavior commandBehavior)
+        public static IDataReader ExecuteReader(RDBMSProvider rdbmsProvider, string connectionString, CommandDefinition command, CommandBehavior commandBehavior)
         {
             IDbConnection connection = null;
 
@@ -1021,7 +1021,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 return connection.ExecuteReader(command, commandBehavior);
@@ -1033,7 +1033,7 @@ namespace MultiDBHelper
             }
         }
 
-        public static IDataReader ExecuteReader(Db db, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
+        public static IDataReader ExecuteReader(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, int? commandTimeOut = null, CommandType? commandType = null)
         {
             IDbConnection connection = null;
             IDbTransaction transaction = null;
@@ -1043,7 +1043,7 @@ namespace MultiDBHelper
                 if (string.IsNullOrWhiteSpace(connectionString))
                     throw new ArgumentException("Connection string cannot be null, empty or white-space.", nameof(connectionString));
 
-                connection = CreateConnection(db, connectionString);
+                connection = CreateConnection(rdbmsProvider, connectionString);
                 connection.Open();
 
                 if (useTransaction)
@@ -1064,28 +1064,28 @@ namespace MultiDBHelper
         }
 
         
-        private static IDbConnection CreateConnection(Db db, string connectionString)
+        private static IDbConnection CreateConnection(RDBMSProvider rdbmsProvider, string connectionString)
         {
             IDbConnection connection = null;
 
-            switch (db)
+            switch (rdbmsProvider)
             {
-                case Db.MSSQLServer:
+                case RDBMSProvider.MSSQLServer:
                     connection = new SqlConnection(connectionString);
                     break;
-                case Db.MySQL:
+                case RDBMSProvider.MySQL:
                     connection = new MySqlConnection(connectionString);
                     break;
-                case Db.PostgreSQL:
+                case RDBMSProvider.PostgreSQL:
                     connection = new NpgsqlConnection(connectionString);
                     break;
-                case Db.Oracle:
+                case RDBMSProvider.Oracle:
                     connection = new OracleConnection(connectionString);
                     break;
-                case Db.Firebird:
+                case RDBMSProvider.Firebird:
                     connection = new FbConnection(connectionString);
                     break;
-                case Db.SQLite:
+                case RDBMSProvider.SQLite:
                     connection = new SQLiteConnection(connectionString);
                     break;
                 default:
