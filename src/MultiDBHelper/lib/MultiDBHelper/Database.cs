@@ -36,7 +36,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch 
+            { 
+                transaction?.Rollback(); 
+                throw; 
+            }
             finally
             {
                 connection.Dispose();
@@ -66,7 +70,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -117,7 +125,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -147,7 +159,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -177,7 +193,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -207,7 +227,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -237,7 +261,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -267,7 +295,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -297,7 +329,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -327,7 +363,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -358,7 +398,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -388,7 +432,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -439,7 +487,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -470,7 +522,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -500,7 +556,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -551,7 +611,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -582,7 +646,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -612,7 +680,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -663,7 +735,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -694,7 +770,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -724,7 +804,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -775,7 +859,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -827,7 +915,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -858,7 +950,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -931,7 +1027,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -982,7 +1082,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
@@ -1055,7 +1159,11 @@ namespace MultiDBHelper
 
                 return ret;
             }
-            catch { throw; }
+            catch
+            {
+                transaction?.Rollback();
+                throw;
+            }
             finally
             {
                 connection.Dispose();
