@@ -1,0 +1,24 @@
+name: build-and-deploy
+on: 
+    push:
+        branches:
+            - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+
+    - name: Build
+      run: dotnet build --configuration Release src/MultiDBHelper/lib/MultiDBHelper/MultiDBHelper.csproj
+
+      - name: Publish to NuGet
+      uses: brandedoutcast/publish-nuget@v2
+      with:
+          PROJECT_FILE_PATH: src/MultiDBHelper/lib/MultiDBHelper/MultiDBHelper.csproj
+          NUGET_KEY: ${{secrets.NUGET_TOKEN}}
