@@ -9,19 +9,21 @@
     <PackageIcon>multidbhelper-icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/alecgn/multi-db-helper</RepositoryUrl>
     <PackageTags>dapper multi database db sql mssql sqlserver mssqlserver firebird firebirdsql mysql postgre postgresql npg npgsql oracle sqlite</PackageTags>
-    <AssemblyVersion>2.0.4</AssemblyVersion>
-    <FileVersion>2.0.4</FileVersion>
+    <AssemblyVersion>2.1.0</AssemblyVersion>
+    <FileVersion>2.1.0</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/alecgn/multi-db-helper</PackageProjectUrl>
-    <Version>2.0.4</Version>
-    <PackageReleaseNotes>- Updated dependencies.</PackageReleaseNotes>
+    <Version>2.1.0</Version>
+    <PackageReleaseNotes>- Added UnitOfWork.
+- Updated dependencies.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.78" />
-    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="7.10.1" />
+    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
     <PackageReference Include="MySql.Data" Version="8.0.23" />
-    <PackageReference Include="Npgsql" Version="5.0.3" />
+    <PackageReference Include="Npgsql" Version="5.0.4" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.101" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.7" />
