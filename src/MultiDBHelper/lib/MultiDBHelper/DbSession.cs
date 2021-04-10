@@ -26,6 +26,14 @@ namespace MultiDBHelper
             Connection.Open();
         }
 
+        /// <summary>
+        /// "Closes" but keeps the Connection object active, used when you need to re-open the connection soon or in a near future.
+        /// </summary>
+        public void Close() => Connection?.Close();
+
+        /// <summary>
+        /// Effectively closes the connection.
+        /// </summary>
         public void Dispose() => Connection?.Dispose();
 
         private IDbConnection CreateConnection(RDBMSProvider rdbmsProvider, string connectionString)

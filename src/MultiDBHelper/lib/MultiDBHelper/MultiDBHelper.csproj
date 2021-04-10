@@ -14,15 +14,17 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/alecgn/multi-db-helper</PackageProjectUrl>
     <Version>2.1.0</Version>
-    <PackageReleaseNotes>- Added UnitOfWork.
-- Updated dependencies.</PackageReleaseNotes>
+    <PackageReleaseNotes>- Added DbSession.
+- Added UnitOfWork.
+- Updated dependencies.
+- Database class marked as "Obsolete".</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.78" />
     <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="8.0.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
-    <PackageReference Include="MySql.Data" Version="8.0.23" />
+    <PackageReference Include="MySql.Data" Version="8.0.24" />
     <PackageReference Include="Npgsql" Version="5.0.4" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.101" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />

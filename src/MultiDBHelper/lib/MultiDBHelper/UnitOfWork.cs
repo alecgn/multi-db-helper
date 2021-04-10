@@ -1,17 +1,19 @@
-﻿namespace MultiDBHelper
+﻿using System.Data;
+
+namespace MultiDBHelper
 {
     public sealed class UnitOfWork : IUnitOfWork
     {
         private readonly DbSession _dbSession;
 
-        public UnitOfWork(DbSession session)
+        public UnitOfWork(DbSession dbSession)
         {
-            _dbSession = session;
+            _dbSession = dbSession;
         }
 
-        public void BeginTransaction()
+        public void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
-            _dbSession.Transaction = _dbSession.Connection.BeginTransaction();
+            _dbSession.Transaction = _dbSession.Connection.BeginTransaction(isolationLevel);
         }
 
         public void Commit()

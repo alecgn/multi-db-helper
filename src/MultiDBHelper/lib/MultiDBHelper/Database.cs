@@ -17,6 +17,7 @@ using System.Data.SQLite;
 
 namespace MultiDBHelper
 {
+    [Obsolete("It's highly recommended to use DbSession class instead this.")]
     public static class Database
     {
         public static IEnumerable<dynamic> Query(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
