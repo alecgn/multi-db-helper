@@ -1,4 +1,10 @@
-﻿using Dapper;
+﻿#if NETFRAMEWORK
+using System.Data.SqlClient;
+#else
+using Microsoft.Data.SqlClient;
+#endif
+
+using Dapper;
 using FirebirdSql.Data.FirebirdClient;
 using MultiDBHelper.Enums;
 using MySql.Data.MySqlClient;
@@ -7,11 +13,11 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Data.SQLite;
 
 namespace MultiDBHelper
 {
+    [Obsolete("It's highly recommended to use DbSession class instead this.")]
     public static class Database
     {
         public static IEnumerable<dynamic> Query(RDBMSProvider rdbmsProvider, string connectionString, string sqlQuery, object paramsObj = null, bool useTransaction = false, bool buffered = true, int? commandTimeOut = null, CommandType? commandType = null)
